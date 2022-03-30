@@ -1,5 +1,3 @@
-# expdataanalysis
-Exploratory Data Analysis and Model Training using Python
 # Project - Diabetes Analysis
 
 ---------------
