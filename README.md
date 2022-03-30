@@ -279,8 +279,6 @@ pima.head()
 
 
 ```python
-#remove _____ & write the appropriate function name
-
 pima.ndim
 ```
 
@@ -297,8 +295,6 @@ Since a dataset can consist of many dimensions, "the dimension of the dataset" m
 
 
 ```python
-#remove _____ & write the appropriate function name
-
 pima.shape
 ```
 
@@ -354,8 +350,6 @@ There are no missing values in the pima dataframe.
 
 
 ```python
-#remove _____ & write the appropriate function name
-
 pima.iloc[:,:(pima.columns.get_loc('Outcome'))].describe()
 ```
 
@@ -598,7 +592,6 @@ Glucose and Insulin has a moderately positive linear relationship with each othe
 
 ```python
 plt.boxplot(pima['Age'])
-
 plt.title('Boxplot of Age')
 plt.ylabel('Age')
 plt.show()
@@ -764,8 +757,6 @@ plt.show()
 
 #### Observations from the plot
 The above plot shows that there is a reasonable correlation between 'Age' and 'Pregnancies' (0.55). The second significant correlation can be observed between 'Insulin' and 'SkinThickness' (0.47). The diagonal values, on the other hand, are '1' since it represents the correlation of the variable with itself.
-    
-
 ## Model Training
 
 ### Split and scale the data
@@ -874,6 +865,6 @@ confusion_matrix(y_test, y_pred2)
 The accuracy of RF model on the train set is %82, as for the test set it is 79%.
 True Positives count is 57, while True Negatives count is 61.    
 
-### Which model performed better?
+### Which model performed better? (1 Mark)
 
 We can clearly say that Random Forest model performed better, based on the accuracy numbers, the confusion matrix (True Positive, False Negative etc) and their calculated indexes like Precision and Recall. Both of the accuracy values and F1-score (a harmonic mean of Precision and Recall) are higher than the ones of LR model.
