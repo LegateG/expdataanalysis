@@ -874,6 +874,6 @@ confusion_matrix(y_test, y_pred2)
 The accuracy of RF model on the train set is %82, as for the test set it is 79%.
 True Positives count is 57, while True Negatives count is 61.    
 
-### Which model performed better? (1 Mark)
+### Which model performed better?
 
 We can clearly say that Random Forest model performed better, based on the accuracy numbers, the confusion matrix (True Positive, False Negative etc) and their calculated indexes like Precision and Recall. Both of the accuracy values and F1-score (a harmonic mean of Precision and Recall) are higher than the ones of LR model.
