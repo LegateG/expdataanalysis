@@ -58,11 +58,13 @@ from sklearn.ensemble import RandomForestClassifier
 
 ### Read the given dataset
 
+
 ```python
 pima = pd.read_csv("diabetes.csv")
 ```
 
 ### Show the last 5 records of the dataset
+
 
 ```python
 pima.tail()
@@ -270,26 +272,32 @@ pima.head()
 
 pima.ndim
 ```
+
     2
 
 #### What do we understand by the dimension of the dataset?
 Since a dataset can consist of many dimensions, "the dimension of the dataset" means the number of dimensions it is made of; for an array it is 1, for a dataframe it is 2 (rows and columns), etc.
 ### Find the size of the `pima` dataframe.
 
+
 ```python
 #remove _____ & write the appropriate function name
 
 pima.shape
 ```
+
     (1000, 9)
+
 
 #### What do we understand by the dimension of the dataset?
 The dataset is in the size of 1000 rows and 9 columns.
 ### Display the data types of all the variables in the data set.
 
+
 ```python
 pima.dtypes
 ```
+
     Pregnancies                   int64
     Glucose                       int64
     BloodPressure                 int64
@@ -303,14 +311,17 @@ pima.dtypes
 
 ### Are there any missing values in the `pima` dataframe? 
 
+
 ```python
 pima.isnull().values.any()
 ```
+
     False
 
 #### Which variables have missing values?
 There are no missing values in the pima dataframe.
 ### Find the summary statistics for all variables except for  `'Outcome'` variable. 
+
 
 ```python
 #remove _____ & write the appropriate function name
@@ -439,8 +450,6 @@ pima.iloc[:,:(pima.columns.get_loc('Outcome'))].describe()
 </table>
 </div>
 
-
-
 #### Choose any one column/variable and explain all the statistical measures.
 The statistics of "Insulin";
 "count": Holds 1000 observations/values.
@@ -453,14 +462,13 @@ The statistics of "Insulin";
 "max": The highest value, which is a whopping 846, confirming a heavily left-skewed distribution because of outliers.
 ### Plot the distribution plot for the variable `'BloodPressure'`. 
 
-
 ```python
 sns.displot(pima['BloodPressure'], kind='kde')
 plt.show()
 ```
-    
+   
 ![png](output_29_0.png)
- 
+    
 #### Observations from the plot.
 The overwhelming majority of the Blood Pressure values are between the range 50 to 100.
 ### What is the `'BMI'` for the person having the highest `'Glucose'`?
@@ -473,12 +481,12 @@ pima[pima['Glucose']==pima['Glucose'].max()]['BMI']
     661    42.9
     Name: BMI, dtype: float64
 
+
 The person with the highest Glucose value (661) has a BMI of 42.9
 #### What is the mean of the variable `'BMI'`? 
 #### What is the median of the variable `'BMI'`? 
 #### What is the mode of the variable `'BMI'`?
 #### Are the three measures of central tendency equal?
-
 
 ```python
 m1 = pima['BMI'].mean()  #Mean
@@ -497,10 +505,10 @@ The variable 'BMI' has a mean of ~32.66, a median of 32.8 and a mode of 32.0
 The three masures of central tendency are not exactly equal, yet pretty close to each other.
 ### How many women's `'Glucose'` level is above the mean level of `'Glucose'`?
 
-
 ```python
 pima[pima['Glucose']>pima['Glucose'].mean()].shape[0]
 ```
+
     449
 
 Of the total of 1000 'Glucose' level observations, 449 of them are above the mean level of it.
@@ -523,9 +531,9 @@ The relationship between all the numerical variables are displayed. 'Glucose' an
 sns.scatterplot(x='Glucose',y='Insulin',data=pima)
 plt.show()
 ```
-    
-![png](output_46_0.png)
    
+![png](output_46_0.png)
+    
 #### Observations from the plot
 Glucose and Insulin has a moderately positive linear relationship with each other, where the Insulin amount is increasing with an increasing level of Glucose. However, there are also a handful amount of values where Insulin is not affected at all by Glucose.
 ### Plot the boxplot for the 'Age' variable
@@ -538,7 +546,7 @@ plt.title('Boxplot of Age')
 plt.ylabel('Age')
 plt.show()
 ```
-    
+   
 ![png](output_50_0.png)
     
 #### Are there outliers?
@@ -680,9 +688,12 @@ sns.heatmap(corr_matrix, annot = True)
 # display the plot
 plt.show()
 ```
+
+
     
 ![png](output_55_0.png)
-   
+    
+
 
 #### Observations from the plot
 The above plot shows that there is a reasonable correlation between 'Age' and 'Pregnancies' (0.55). The second significant correlation can be observed between 'Insulin' and 'SkinThickness' (0.47). The diagonal values, on the other hand, are '1' since it represents the correlation of the variable with itself.
@@ -699,12 +710,14 @@ y = pima.Outcome
 x = pima.drop('Outcome', axis = 1)
 ```
 
+
 ```python
 # Using StandarScaler scale the data
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 X = scaler.fit_transform(x)
 ```
+
 
 ```python
 # Splitting the data into train and test. Use test size as 15%
@@ -741,6 +754,8 @@ confusion_matrix(y_test, y_pred)
     
     array([[60, 15],
            [22, 53]], dtype=int64)
+
+
 
 #### What is the Accuracy and how many True Positives and True Negatives did we get?
 
