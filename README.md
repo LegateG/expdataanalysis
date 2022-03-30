@@ -74,8 +74,6 @@ pima.tail()
 
 
 <div>
-<style scoped>
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -169,8 +167,6 @@ pima.head()
 
 
 <div>
-<style scoped>
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -335,8 +331,6 @@ pima.iloc[:,:(pima.columns.get_loc('Outcome'))].describe()
 
 
 <div>
-<style scoped>
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -585,8 +579,6 @@ corr_matrix
 
 
 <div>
-<style scoped>
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
