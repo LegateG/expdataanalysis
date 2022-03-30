@@ -70,6 +70,9 @@ pima = pd.read_csv("diabetes.csv")
 pima.tail()
 ```
 
+
+
+
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -164,12 +167,17 @@ pima.tail()
 </table>
 </div>
 
+
+
 ### Show the first 5 records of the dataset
 
 
 ```python
 pima.head()
 ```
+
+
+
 
 <div>
 <style scoped>
@@ -265,7 +273,10 @@ pima.head()
 </table>
 </div>
 
+
+
 ### Find the dimension of the `pima` dataframe.
+
 
 ```python
 #remove _____ & write the appropriate function name
@@ -273,7 +284,12 @@ pima.head()
 pima.ndim
 ```
 
+
+
+
     2
+
+
 
 #### What do we understand by the dimension of the dataset?
 Since a dataset can consist of many dimensions, "the dimension of the dataset" means the number of dimensions it is made of; for an array it is 1, for a dataframe it is 2 (rows and columns), etc.
@@ -286,7 +302,11 @@ Since a dataset can consist of many dimensions, "the dimension of the dataset" m
 pima.shape
 ```
 
+
+
+
     (1000, 9)
+
 
 
 #### What do we understand by the dimension of the dataset?
@@ -297,6 +317,9 @@ The dataset is in the size of 1000 rows and 9 columns.
 ```python
 pima.dtypes
 ```
+
+
+
 
     Pregnancies                   int64
     Glucose                       int64
@@ -309,6 +332,8 @@ pima.dtypes
     Outcome                       int64
     dtype: object
 
+
+
 ### Are there any missing values in the `pima` dataframe? 
 
 
@@ -316,7 +341,12 @@ pima.dtypes
 pima.isnull().values.any()
 ```
 
+
+
+
     False
+
+
 
 #### Which variables have missing values?
 There are no missing values in the pima dataframe.
@@ -328,6 +358,9 @@ There are no missing values in the pima dataframe.
 
 pima.iloc[:,:(pima.columns.get_loc('Outcome'))].describe()
 ```
+
+
+
 
 <div>
 <style scoped>
@@ -450,6 +483,8 @@ pima.iloc[:,:(pima.columns.get_loc('Outcome'))].describe()
 </table>
 </div>
 
+
+
 #### Choose any one column/variable and explain all the statistical measures.
 The statistics of "Insulin";
 "count": Holds 1000 observations/values.
@@ -462,13 +497,18 @@ The statistics of "Insulin";
 "max": The highest value, which is a whopping 846, confirming a heavily left-skewed distribution because of outliers.
 ### Plot the distribution plot for the variable `'BloodPressure'`. 
 
+
 ```python
 sns.displot(pima['BloodPressure'], kind='kde')
 plt.show()
 ```
-   
+
+
+    
 ![png](output_29_0.png)
     
+
+
 #### Observations from the plot.
 The overwhelming majority of the Blood Pressure values are between the range 50 to 100.
 ### What is the `'BMI'` for the person having the highest `'Glucose'`?
@@ -477,6 +517,9 @@ The overwhelming majority of the Blood Pressure values are between the range 50 
 ```python
 pima[pima['Glucose']==pima['Glucose'].max()]['BMI']
 ```
+
+
+
 
     661    42.9
     Name: BMI, dtype: float64
@@ -487,6 +530,7 @@ The person with the highest Glucose value (661) has a BMI of 42.9
 #### What is the median of the variable `'BMI'`? 
 #### What is the mode of the variable `'BMI'`?
 #### Are the three measures of central tendency equal?
+
 
 ```python
 m1 = pima['BMI'].mean()  #Mean
@@ -505,11 +549,16 @@ The variable 'BMI' has a mean of ~32.66, a median of 32.8 and a mode of 32.0
 The three masures of central tendency are not exactly equal, yet pretty close to each other.
 ### How many women's `'Glucose'` level is above the mean level of `'Glucose'`?
 
+
 ```python
 pima[pima['Glucose']>pima['Glucose'].mean()].shape[0]
 ```
 
+
+
+
     449
+
 
 Of the total of 1000 'Glucose' level observations, 449 of them are above the mean level of it.
 ### Create the pairplot for variables `'Glucose'`, `'SkinThickness'` and `'DiabetesPedigreeFunction'`. 
@@ -519,9 +568,13 @@ Of the total of 1000 'Glucose' level observations, 449 of them are above the mea
 sns.pairplot(data=pima, vars=['Glucose', 'SkinThickness', 'DiabetesPedigreeFunction'], hue='Outcome')
 plt.show()
 ```
+
+
     
 ![png](output_42_0.png)
     
+
+
 #### Observations from the plot.
 The relationship between all the numerical variables are displayed. 'Glucose' and 'DiabetesPedigreeFunction' are negatively skewed, with some outliers. The same relationship goes for 'Glucose' and 'SkinThickness', where the former has a substantial influence over the latter. A similar level of bias can be observed between 'SkinThickness' and 'DiabetesPedigreeFunction', although they are positively skewed.
 ### Plot the scatterplot between `'Glucose'` and `'Insulin'`. 
@@ -531,9 +584,13 @@ The relationship between all the numerical variables are displayed. 'Glucose' an
 sns.scatterplot(x='Glucose',y='Insulin',data=pima)
 plt.show()
 ```
-   
+
+
+    
 ![png](output_46_0.png)
     
+
+
 #### Observations from the plot
 Glucose and Insulin has a moderately positive linear relationship with each other, where the Insulin amount is increasing with an increasing level of Glucose. However, there are also a handful amount of values where Insulin is not affected at all by Glucose.
 ### Plot the boxplot for the 'Age' variable
@@ -546,9 +603,13 @@ plt.title('Boxplot of Age')
 plt.ylabel('Age')
 plt.show()
 ```
-   
+
+
+    
 ![png](output_50_0.png)
     
+
+
 #### Are there outliers?
 The boxplot shows that there are plenty of outliers (the circles above the upper line at the Age of ~65)
 ### Find and visualize the the correlation matrix
@@ -559,6 +620,9 @@ corr_matrix = pima.iloc[:,0:8].corr()
 
 corr_matrix
 ```
+
+
+
 
 <div>
 <style scoped>
@@ -681,6 +745,9 @@ corr_matrix
 </table>
 </div>
 
+
+
+
 ```python
 plt.figure(figsize=(8,8))
 sns.heatmap(corr_matrix, annot = True)
@@ -752,6 +819,10 @@ confusion_matrix(y_test, y_pred)
     Accuracy of Logistic Regression model on the train set: 0.76
     Accuracy of the Logictic Regression model on the test set: 0.75
     
+
+
+
+
     array([[60, 15],
            [22, 53]], dtype=int64)
 
@@ -789,8 +860,14 @@ confusion_matrix(y_test, y_pred2)
     Accuracy of Random Forest model on the train set: 0.82
     Accuracy of Random Forest model on the test set: 0.79
     
+
+
+
+
     array([[57, 18],
            [14, 61]], dtype=int64)
+
+
 
 #### What is the Accuracy and how many True Positives and True Negatives did we get?
 
